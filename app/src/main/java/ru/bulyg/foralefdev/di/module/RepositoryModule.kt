@@ -2,6 +2,7 @@ package ru.bulyg.foralefdev.di.module
 
 import dagger.Module
 import dagger.Provides
+import ru.bulyg.foralefdev.mvp.model.Model
 import ru.bulyg.foralefdev.mvp.model.api.ApiService
 import ru.bulyg.foralefdev.mvp.model.repository.ApiRepository
 import javax.inject.Singleton
@@ -12,5 +13,11 @@ class RepositoryModule {
     @Provides
     fun provideRepository(apiService: ApiService): ApiRepository {
         return ApiRepository(apiService)
+    }
+
+    @Singleton
+    @Provides
+    fun provideModel(): Model {
+        return Model()
     }
 }

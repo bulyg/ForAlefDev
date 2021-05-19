@@ -10,9 +10,9 @@ import ru.bulyg.foralefdev.mvp.view.DetailView
 import ru.bulyg.foralefdev.ui.App
 import ru.bulyg.foralefdev.util.loadPictures
 
-class DetailFragment(val url: String) : MvpAppCompatFragment(R.layout.fragment_detail), DetailView {
+class DetailFragment : MvpAppCompatFragment(R.layout.fragment_detail), DetailView {
     companion object {
-        fun newInstance(url: String) = DetailFragment(url)
+        fun newInstance() = DetailFragment()
     }
 
     @InjectPresenter
@@ -23,7 +23,7 @@ class DetailFragment(val url: String) : MvpAppCompatFragment(R.layout.fragment_d
         App.instance.appComponent.inject(this)
     }
 
-    override fun init() {
+    override fun init(url: String) {
         loadPictures(url, iv_detail)
     }
 }
