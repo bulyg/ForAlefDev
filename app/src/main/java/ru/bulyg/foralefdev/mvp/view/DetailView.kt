@@ -6,5 +6,5 @@ import moxy.viewstate.strategy.StateStrategyType
 
 @StateStrategyType(AddToEndStrategy::class)
 interface DetailView : MvpView {
-    fun init()
+    fun init(url: String)
 }

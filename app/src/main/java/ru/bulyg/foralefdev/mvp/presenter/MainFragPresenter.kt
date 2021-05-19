@@ -2,6 +2,7 @@ package ru.bulyg.foralefdev.mvp.presenter
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import moxy.MvpPresenter
+import ru.bulyg.foralefdev.mvp.model.Model
 import ru.bulyg.foralefdev.mvp.model.repository.ApiRepository
 import ru.bulyg.foralefdev.mvp.presenter.adapter.MainRVListPresenter
 import ru.bulyg.foralefdev.mvp.view.MainFragView
@@ -16,6 +17,9 @@ class MainFragPresenter : MvpPresenter<MainFragView>() {
 
     @Inject
     lateinit var router: Router
+
+    @Inject
+    lateinit var model: Model
 
     var listPresenter = ListPresenter()
 
@@ -35,7 +39,8 @@ class MainFragPresenter : MvpPresenter<MainFragView>() {
         }
 
         override fun openDetailScreen(pos: Int) {
-            router.navigateTo(Screens.DetailScreen(list[pos]))
+            router.navigateTo(Screens.DetailScreen())
+            model.url = list[pos]
         }
     }
 

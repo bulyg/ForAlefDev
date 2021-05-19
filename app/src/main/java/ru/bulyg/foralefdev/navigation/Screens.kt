@@ -9,7 +9,7 @@ class Screens {
         override fun getFragment() = MainFragment.newInstance()
     }
 
-    class DetailScreen(val url: String) : SupportAppScreen() {
-        override fun getFragment() = DetailFragment.newInstance(url)
+    class DetailScreen() : SupportAppScreen() {
+        override fun getFragment() = DetailFragment.newInstance()
     }
 }
